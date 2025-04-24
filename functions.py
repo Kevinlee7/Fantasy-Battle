@@ -1,10 +1,13 @@
 import openai
 import re
-
+import streamlit as st
 # Initialize OpenAI Client
-with open('open_ai_key.txt', 'r', encoding='utf-8') as file:
-    openai_key = file.readline().strip()
+# with open('open_ai_key.txt', 'r', encoding='utf-8') as file:
+#     openai_key = file.readline().strip()
+# client = openai.OpenAI(api_key=openai_key)
+openai_key = st.secrets["OPENAI_API_KEY"]
 client = openai.OpenAI(api_key=openai_key)
+
 
 # --- Parse Character Card text into dict ---
 def parse_card_text(card_text):
